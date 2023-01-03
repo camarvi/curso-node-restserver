@@ -126,6 +126,9 @@ const usuariosDelete = async(req, res = response) => {
 
     const { id } = req.params;
 
+    // const uid = req.uid;
+
+
     //BORRAR FISICAMENTE LE REGISTRO
     //const usuario = await Usuario.findByIdAndDelete(id);
 
@@ -133,10 +136,14 @@ const usuariosDelete = async(req, res = response) => {
 
     const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
 
+    const usuarioAutenticado = req.usuario;
+
     res.json({
-        ok: true,
-        msg: 'findByIdAndUpdate',
-        usuario
+        //ok: true,
+        // msg: 'findByIdAndUpdate',
+        usuario,
+        usuarioAutenticado
+        //  uid
     });
 }
 

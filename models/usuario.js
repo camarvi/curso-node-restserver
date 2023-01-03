@@ -37,7 +37,8 @@ const UsuarioShema = Schema({
 
 // PARA NO MOSTRAR en la response __v ni password al insertar
 UsuarioShema.methods.toJSON = function() {
-    const { __v, password, ...usuario } = this.toObject();
+    const { __v, password, _id, ...usuario } = this.toObject();
+    usuario.uid = _id;
     return usuario;
 }
 
