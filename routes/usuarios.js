@@ -21,7 +21,7 @@ const {
     usuariosPut,
     usuariosDelete,
     usuariosPatch
-} = require('../controllers/usuario.controller');
+} = require('../controllers/usuario');
 
 
 

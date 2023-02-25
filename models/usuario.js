@@ -42,4 +42,4 @@ UsuarioShema.methods.toJSON = function() {
     return usuario;
 }
 
-module.exports = model('Usuarios', UsuarioShema);
+module.exports = model('Usuario', UsuarioShema);
