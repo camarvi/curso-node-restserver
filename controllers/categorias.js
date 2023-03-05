@@ -68,11 +68,40 @@ const CrearCategoria = async(req, res = response) => {
 
 // Actualizar Categoria
 
-// Borrar Categoria - estado : false
+const actualizarCategoria = async(req, res = response) => {
 
+    const { id } = req.params;
+    // por un lado extraigo el estado y el usuario, y el resto
+    // en la data 
+    const { estado, usuario, ...data } = req.body;
+
+    // Poner el nombre de la categoria en mayuscula antes de guardarlo
+    data.nombre = data.nombre.toUpperCase();
+    data.usuario = req.usuario._id;
+
+    const categoriaAct = await Categoria.findByIdAndUpdate(id, data, { new: true });
+
+    // res.json(categoria);
+
+    res.json(categoriaAct);
+
+
+
+}
+
+// Borrar Categoria - estado : false
+const borrarCategoria = async(req, res = response) => {
+    const { id } = req.params;
+
+    const categoriaBorrada = await Categoria.findByIdAndUpdate(id, { estado: false }, { new: true });
+
+    res.status(200).json(categoriaBorrada);
+}
 
 module.exports = {
     CrearCategoria,
     obtenerCategorias,
-    ObtenerCategoria
+    ObtenerCategoria,
+    actualizarCategoria,
+    borrarCategoria
 }
