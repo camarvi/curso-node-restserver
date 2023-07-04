@@ -17,11 +17,23 @@ const cargarArchivo = async(req, res = response) => {
         return;
     }
 
-    //Imagenes 
-    const nombre = await subirArchivo(req.files);
-    res.json({
-        nombre
-    });
+    //Subir ficheros, puedo establer las extensiones permitidas
+    //para los archivos a subir
+
+    try {
+        //subir ficheros con extension txt,md en la carpeta textos
+        //const nombre = await subirArchivo(req.files, ['txt', 'md'], 'textos');
+
+        const nombre = await subirArchivo(req.files, undefined, 'imgs');
+        res.json({
+            nombre
+        });
+
+    } catch (msg) {
+        res.status(400).json({ msg });
+    }
+
+
 
 }
 
