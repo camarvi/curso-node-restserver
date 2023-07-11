@@ -6,21 +6,21 @@ const { Usuario, Producto } = require('../models');
 
 const cargarArchivo = async(req, res = response) => {
 
-    //let sampleFile;
-    //let uploadPath;
+    // //let sampleFile;
+    // //let uploadPath;
 
-    if (!req.files || Object.keys(req.files).length === 0) {
-        res.status(400).json({ msg: 'No hay archivos que subir' });
-        return;
-    }
+    // if (!req.files || Object.keys(req.files).length === 0) {
+    //     res.status(400).json({ msg: 'No hay archivos que subir' });
+    //     return;
+    // }
 
-    if (!req.files.archivo) {
-        res.status(400).json({ msg: 'No hay archivos que subir' });
-        return;
-    }
+    // if (!req.files.archivo) {
+    //     res.status(400).json({ msg: 'No hay archivos que subir' });
+    //     return;
+    // }
 
-    //Subir ficheros, puedo establer las extensiones permitidas
-    //para los archivos a subir
+    // //Subir ficheros, puedo establer las extensiones permitidas
+    // //para los archivos a subir
 
     try {
         //subir ficheros con extension txt,md en la carpeta textos
@@ -40,6 +40,16 @@ const cargarArchivo = async(req, res = response) => {
 }
 
 const actualizarImagen = async(req, res = response) => {
+
+    // if (!req.files || Object.keys(req.files).length === 0) {
+    //     res.status(400).json({ msg: 'No hay archivos que subir' });
+    //     return;
+    // }
+
+    // if (!req.files.archivo) {
+    //     res.status(400).json({ msg: 'No hay archivos que subir' });
+    //     return;
+    // }
 
     const { id, coleccion } = req.params;
 
